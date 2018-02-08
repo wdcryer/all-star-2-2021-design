@@ -1,0 +1,107 @@
+<html>
+
+<head>
+  <style>
+  .images {
+    height: 200px;
+    position: relative;
+  }
+
+  .image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 75vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #shirt {
+    background-image: url(images/AntiqueRoyal.png);
+    background-size: auto 100%;
+  }
+
+  #tire-dragon {
+    background-image: url(images/TireDragonHead.svg);
+    background-size: auto 30%;
+  }
+  </style>
+  <script>
+    let shirt
+
+    const setDragon = (event) => {
+      const image = event.target.value
+      const src = `url(images/${image}.svg)`
+
+      document.getElementById('tire-dragon').style.backgroundImage = src
+    }
+
+    const setShirt = (event) => {
+      const color = event.target.value
+      const src = `url(images/${color}.png)`
+
+      document.getElementById('shirt').style.backgroundImage = src
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const imageOptions = document.getElementById('dragon-image')
+      imageOptions.addEventListener('change', setDragon)
+
+      const colorOptions = document.getElementById('shirt-color')
+      colorOptions.addEventListener('change', setShirt)
+    })
+
+  </script>
+
+</head>
+
+<body>
+
+  <label>Dragon Image: <select id='dragon-image'>
+    <option value='Head'>Original</option>
+    <option value='HeadBlackText'>Black Text</option>
+  </select></label>
+
+  <label>Shirt Color: <select id='shirt-color'>
+    <option value='AntiqueRoyal'>Antique Royal</option>
+    <option value='Black'>Black</option>
+    <option value='BlueDusk'>Blue Dusk</option>
+    <option value='CardinalRed'>Cardinal Red</option>
+    <option value='CarolinaBlue'>Carolina Blue</option>
+    <option value='Charcoal'>Charcoal</option>
+    <option value='CherryRed'>Cherry Red</option>
+    <option value='Chestnut'>Chestnut</option>
+    <option value='Daisy'>Daisy</option>
+    <option value='ForestGreen'>Forest Green</option>
+    <option value='GalapagosBlue'>Galapagos Blue</option>
+    <option value='Gold'>Gold</option>
+    <option value='HeatherSapphire'>Heather Sapphire</option>
+    <option value='Helliconia'>Helliconia</option>
+    <option value='IceGrey'>Ice Grey</option>
+    <option value='Iris'>Iris</option>
+    <option value='Kiwi'>Kiwi</option>
+    <option value='LightPink'>Light Pink</option>
+    <option value='Maroon'>Maroon</option>
+    <option value='MintGreen'>Mint Green</option>
+    <option value='Natural'>Natural</option>
+    <option value='Navy'>Navy</option>
+    <option value='Olive'>Olive</option>
+    <option value='Orange'>Orange</option>
+    <option value='Orchid'>Orchid</option>
+    <option value='Royal'>Royal</option>
+    <option value='Sand'>Sand</option>
+    <option value='Sapphire'>Sapphire</option>
+    <option value='TexasOrange'>Texas Orange</option>
+    <option value='White'>White</option>
+  </select></label>
+
+  <div class='images'>
+    <div class='image' id='shirt'/></div>
+    <div class='image' id='tire-dragon'/></div>
+  </div>
+
+</body>
+
+</html>
