@@ -8,7 +8,7 @@
   }
 
   .image {
-    background-position: center;
+
     background-repeat: no-repeat;
     background-size: contain;
     height: 75vh;
@@ -20,12 +20,21 @@
 
   #shirt {
     background-image: url(images/AntiqueRoyal.png);
+    background-position: center;
     background-size: auto 100%;
   }
 
   #tire-dragon {
     background-image: url(images/Head.svg);
+    background-position: center 40%;
+  }
+
+  .head {
     background-size: auto 30%;
+  }
+
+  .body {
+    background-size: auto 15%
   }
   </style>
   <script>
@@ -40,8 +49,18 @@
 
     const setDragon = (image) => {
       const src = `url(images/${image}.svg)`
+      const tireDragon = document.getElementById('tire-dragon')
 
-      document.getElementById('tire-dragon').style.backgroundImage = src
+      tireDragon.style.backgroundImage = src
+
+      if (image.startsWith('Head')) {
+        tireDragon.classList.remove('body')
+        tireDragon.classList.add('head')
+      }
+      else {
+        tireDragon.classList.remove('head')
+        tireDragon.classList.add('body')
+      }
 
       setParams('dragon', image)
     }
@@ -68,8 +87,6 @@
       const imageOptions = document.getElementById('dragon-image')
       imageOptions.addEventListener('change', handleDragonChange)
 
-      console.log(params.get('dragon'))
-
       if (params.has('dragon')) {
         const dragon = params.get('dragon')
 
@@ -95,9 +112,10 @@
 <body>
 
   <label>Dragon Image: <select id='dragon-image'>
-    <option value='Head'>Original</option>
-    <option value='HeadBlackText'>Black Text</option>
-    <option value='HeadWhiteOutline'>White Outline</option>
+    <option value='Head'>Head</option>
+    <option value='FullBody'>Full</option>
+    <option value='HeadBlackText'>Head Black Text</option>
+    <option value='HeadWhiteOutline'>Head White Outline</option>
   </select></label>
 
   <label>Shirt Color: <select id='shirt-color'>
@@ -157,7 +175,7 @@
 
   <div class='images'>
     <div class='image' id='shirt'/></div>
-    <div class='image' id='tire-dragon'/></div>
+    <div class='image head' id='tire-dragon'/></div>
   </div>
 
 </body>
