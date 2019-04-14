@@ -1,183 +1,85 @@
 <html>
 
 <head>
-  <style>
-  .images {
-    height: 200px;
-    position: relative;
-  }
-
-  .image {
-
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 75vh;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  #shirt {
-    background-image: url(images/AntiqueRoyal.png);
-    background-position: center;
-    background-size: auto 100%;
-  }
-
-  #tire-dragon {
-    background-image: url(images/Head.svg);
-    background-position: center 40%;
-  }
-
-  .head {
-    background-size: auto 30%;
-  }
-
-  .body {
-    background-size: auto 18%;
-  }
-  </style>
-  <script>
-    let shirt
-
-    const setParams = (key, value) => {
-      const params = new URLSearchParams(window.location.search)
-
-      params.set(key, value)
-      history.pushState({}, '', window.location.pathname + '?' + params.toString())
-    }
-
-    const setDragon = (image) => {
-      const src = `url(images/${image}.svg)`
-      const tireDragon = document.getElementById('tire-dragon')
-
-      tireDragon.style.backgroundImage = src
-
-      if (image.startsWith('Head')) {
-        tireDragon.classList.remove('body')
-        tireDragon.classList.add('head')
-      }
-      else {
-        tireDragon.classList.remove('head')
-        tireDragon.classList.add('body')
-      }
-
-      setParams('dragon', image)
-    }
-
-    const handleDragonChange = (event) => {
-      setDragon(event.target.value)
-    }
-
-    const setShirt = (image) => {
-      const src = `url(images/${image})`
-
-      document.getElementById('shirt').style.backgroundImage = src
-
-      setParams('shirt', image)
-    }
-
-    const handleShirtChange = (event) => {
-      setShirt(event.target.value)
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search)
-
-      const imageOptions = document.getElementById('dragon-image')
-      imageOptions.addEventListener('change', handleDragonChange)
-
-      if (params.has('dragon')) {
-        const dragon = params.get('dragon')
-
-        imageOptions.value = dragon
-        setDragon(dragon)
-      }
-
-      const colorOptions = document.getElementById('shirt-color')
-      colorOptions.addEventListener('change', handleShirtChange)
-
-      if (params.has('shirt')) {
-        const shirt = params.get('shirt')
-
-        colorOptions.value = shirt
-        setShirt(shirt)
-      }
-    })
-
-  </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet">
+  </link>
+  <script src="script.js"></script>
 </head>
 
 <body>
+  <form>
+    <label>Design <select id='design-options'>
+        <option value='seagull.png'>Seagull</option>
+        <option value='turnstile.png'>Turnstile</option>
+      </select>
+    </label>
+    <label>Shirt <select id='shirt-options'>
+        <option value='AntiqueRoyal.png'>M Antique Royal</option>
+        <option value='Black.png'>M Black</option>
+        <option value='BlueDusk.png'>M Blue Dusk</option>
+        <option value='CardinalRed.png'>M Cardinal Red</option>
+        <option value='CarolinaBlue.png'>M Carolina Blue</option>
+        <option value='Charcoal.png'>M Charcoal</option>
+        <option value='CherryRed.png'>M Cherry Red</option>
+        <option value='Chestnut.png'>M Chestnut</option>
+        <option value='Daisy.png'>M Daisy</option>
+        <option value='ForestGreen.png'>M Forest Green</option>
+        <option value='GalapagosBlue.png'>M Galapagos Blue</option>
+        <option value='Gold.png'>M Gold</option>
+        <option value='HeatherSapphire.png'>M Heather Sapphire</option>
+        <option value='Helliconia.png'>M Helliconia</option>
+        <option value='IceGrey.png'>M Ice Grey</option>
+        <option value='Iris.png'>M Iris</option>
+        <option value='Kiwi.png'>M Kiwi</option>
+        <option value='LightPink.png'>M Light Pink</option>
+        <option value='Maroon.png'>M Maroon</option>
+        <option value='MintGreen.png'>M Mint Green</option>
+        <option value='Natural.png'>M Natural</option>
+        <option value='Navy.png'>M Navy</option>
+        <option value='Olive.png'>M Olive</option>
+        <option value='Orange.png'>M Orange</option>
+        <option value='Orchid.png'>M Orchid</option>
+        <option value='Royal.png'>M Royal Blue</option>
+        <option value='Sand.png'>M Sand</option>
+        <option value='Sapphire.png'>M Sapphire</option>
+        <option value='TexasOrange.png'>M Texas Orange</option>
+        <option value='White.png'>M White</option>
+        <option value='WomensAzalea.jpg'>W Azalea</option>
+        <option value='WomensBlack.jpg'>W Black</option>
+        <option value='WomensCardinal.jpg'>W Cardinal</option>
+        <option value='WomensCharcoal.jpg'>W Charcoal</option>
+        <option value='WomensDaisy.jpg'>W Daisy</option>
+        <option value='WomensDarkChocolateBrown.jpg'>W Dark Chocolate Brown</option>
+        <option value='WomensDarkHeather.jpg'>W Dark Heather</option>
+        <option value='WomensForestGreen.jpg'>W Forest Green</option>
+        <option value='WomensHelliconia.jpg'>W Helliconia</option>
+        <option value='WomensIris.jpg'>W Iris</option>
+        <option value='WomensIrishGreen.jpg'>W Irish Green</option>
+        <option value='WomensLightBlue.jpg'>W Light Blue</option>
+        <option value='WomensLightPink.jpg'>W Light Pink</option>
+        <option value='WomensMaroon.jpg'>W Maroon</option>
+        <option value='WomensMintGreen.jpg'>W Mint Green'</option>
+        <option value='WomensOrange.jpg'>W Orange</option>
+        <option value='WomensPistachio.jpg'>W Pistachio</option>
+        <option value='WomensRoyal.jpg'>W Royal Blue</option>
+        <option value='WomensSafetyGreen.jpg'>W Safety Green</option>
+        <option value='WomensSportGrey.jpg'>W Sport Grey</option>
+        <option value='WomensViolet.jpg'>W Violet</option>
+        <option value='WomensWhite.jpg'>W White</option>
+      </select>
+    </label>
+    <label>Position <select id="position-options">
+        <option value="center">Center</option>
+        <option value="top-left">Top Left</option>
+        <option value="top-right">Top Right</option>
+      </select>
+    </label>
+  </form>
 
-  <label>Dragon Image: <select id='dragon-image'>
-    <option value='Head'>Head</option>
-    <option value='HeadNoText'>Head No Text</option>
-    <option value='HeadBlackText'>Head Black Text</option>
-    <option value='HeadWhiteOutline'>Head White Outline</option>
-    <option value='FullBody'>Full</option>
-    <option value='FullBodyNoText'>Full No Text</option>
-  </select></label>
-
-  <label>Shirt Color: <select id='shirt-color'>
-    <option value='AntiqueRoyal.png'>M Antique Royal</option>
-    <option value='Black.png'>M Black</option>
-    <option value='BlueDusk.png'>M Blue Dusk</option>
-    <option value='CardinalRed.png'>M Cardinal Red</option>
-    <option value='CarolinaBlue.png'>M Carolina Blue</option>
-    <option value='Charcoal.png'>M Charcoal</option>
-    <option value='CherryRed.png'>M Cherry Red</option>
-    <option value='Chestnut.png'>M Chestnut</option>
-    <option value='Daisy.png'>M Daisy</option>
-    <option value='ForestGreen.png'>M Forest Green</option>
-    <option value='GalapagosBlue.png'>M Galapagos Blue</option>
-    <option value='Gold.png'>M Gold</option>
-    <option value='HeatherSapphire.png'>M Heather Sapphire</option>
-    <option value='Helliconia.png'>M Helliconia</option>
-    <option value='IceGrey.png'>M Ice Grey</option>
-    <option value='Iris.png'>M Iris</option>
-    <option value='Kiwi.png'>M Kiwi</option>
-    <option value='LightPink.png'>M Light Pink</option>
-    <option value='Maroon.png'>M Maroon</option>
-    <option value='MintGreen.png'>M Mint Green</option>
-    <option value='Natural.png'>M Natural</option>
-    <option value='Navy.png'>M Navy</option>
-    <option value='Olive.png'>M Olive</option>
-    <option value='Orange.png'>M Orange</option>
-    <option value='Orchid.png'>M Orchid</option>
-    <option value='Royal.png'>M Royal Blue</option>
-    <option value='Sand.png'>M Sand</option>
-    <option value='Sapphire.png'>M Sapphire</option>
-    <option value='TexasOrange.png'>M Texas Orange</option>
-    <option value='White.png'>M White</option>
-    <option value='WomensAzalea.jpg'>W Azalea</option>
-    <option value='WomensBlack.jpg'>W Black</option>
-    <option value='WomensCardinal.jpg'>W Cardinal</option>
-    <option value='WomensCharcoal.jpg'>W Charcoal</option>
-    <option value='WomensDaisy.jpg'>W Daisy</option>
-    <option value='WomensDarkChocolateBrown.jpg'>W Dark Chocolate Brown</option>
-    <option value='WomensDarkHeather.jpg'>W Dark Heather</option>
-    <option value='WomensForestGreen.jpg'>W Forest Green</option>
-    <option value='WomensHelliconia.jpg'>W Helliconia</option>
-    <option value='WomensIris.jpg'>W Iris</option>
-    <option value='WomensIrishGreen.jpg'>W Irish Green</option>
-    <option value='WomensLightBlue.jpg'>W Light Blue</option>
-    <option value='WomensLightPink.jpg'>W Light Pink</option>
-    <option value='WomensMaroon.jpg'>W Maroon</option>
-    <option value='WomensMintGreen.jpg'>W Mint Green'</option>
-    <option value='WomensOrange.jpg'>W Orange</option>
-    <option value='WomensPistachio.jpg'>W Pistachio</option>
-    <option value='WomensRoyal.jpg'>W Royal Blue</option>
-    <option value='WomensSafetyGreen.jpg'>W Safety Green</option>
-    <option value='WomensSportGrey.jpg'>W Sport Grey</option>
-    <option value='WomensViolet.jpg'>W Violet</option>
-    <option value='WomensWhite.jpg'>W White</option>
-  </select></label>
-
-  <div class='images'>
-    <div class='image' id='shirt'/></div>
-    <div class='image head' id='tire-dragon'/></div>
+  <div class='images' id='image-container'>
+    <img class='image' id='shirt' />
+    <img class='image' id='design' data-position="center" />
   </div>
 
 </body>
