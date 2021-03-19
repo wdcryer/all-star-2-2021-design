@@ -46,55 +46,7 @@ select {
 #design {
   position: absolute;
   height: auto;
-}
-
-#design[data-position="center"] {
+  left: 32%;
   top: 26%;
-}
-
-#design[data-position="center"][data-design="seagull.png"] {
-  left: 32%;
   width: 36%;
-}
-
-#design[data-position="center"][data-design="turnstile.png"] {
-  left: 27%;
-  width: 46%;
-}
-
-#design[data-position="top-right"],
-#design[data-position="top-left"] {
-  top: 33%;
-  width: 15%;
-}
-
-#design[data-position="top-right"] {
-  left: 30%;
-}
-
-#design[data-position="top-left"] {
-  left: 55%;
-}
-
-.womens-shirt > #design[data-position="center"][data-design="seagull.png"] {
-  left: 35%;
-  width: 30%;
-}
-
-.womens-shirt > #design[data-position="center"][data-design="turnstile.png"] {
-  left: 32%;
-  width: 36%;
-}
-
-.womens-shirt > #design[data-position="top-right"],
-.womens-shirt > #design[data-position="top-left"] {
-  width: 12%;
-}
-
-.womens-shirt > #design[data-position="top-right"] {
-  left: 33%;
-}
-
-.womens-shirt > #design[data-position="top-left"] {
-  left: 52%;
 }
